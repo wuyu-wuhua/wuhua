@@ -1,81 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="一个帮助你压缩图片的工具，支持 PNG、JPG 格式，可自定义压缩比例，实时预览压缩效果，免费在线使用。">
-    <meta name="keywords" content="图片,图片压缩,图片压缩工具,压缩工具,在线图片压缩,PNG压缩,JPG压缩,图片优化,图片处理"/>
-    <title>图片压缩工具 - 一个帮助你压缩图片的工具</title>
+    <meta name="description" content="A tool to help you compress images, supporting PNG and JPG formats, with customizable compression ratio, real-time preview, and free online use.">
+    <meta name="keywords" content="image, image compression, image compression tool, compression tool, online image compression, PNG compression, JPG compression, image optimization, image processing">
+    <title>Image Compression Tool - A tool to help you compress images</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- 主容器 -->
+    <!-- Main Container -->
     <div class="container">
-        <!-- 头部标题 -->
+        <!-- Header -->
         <header>
-            <h1 title="一个帮助你压缩图片的工具，支持 PNG、JPG 格式，可自定义压缩比例，实时预览压缩效果，免费在线使用。">图片压缩工具</h1>
-            <p>简单、高效的图片压缩服务</p>
+            <h1 title="A tool to help you compress images, supporting PNG and JPG formats, with customizable compression ratio, real-time preview, and free online use.">Image Compression Tool</h1>
+            <p>Simple and efficient image compression service</p>
         </header>
 
-        <!-- 上传区域 -->
+        <!-- Upload Area -->
         <div class="upload-area" id="uploadArea">
             <div class="upload-content">
                 <svg class="upload-icon" viewBox="0 0 24 24">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                 </svg>
-                <p>点击或拖拽图片到这里</p>
-                <p class="upload-hint">支持 PNG、JPG 格式</p>
+                <p>Click or drag image here</p>
+                <p class="upload-hint">Supports PNG, JPG formats</p>
                 <input type="file" id="fileInput" accept="image/png,image/jpeg" hidden>
             </div>
         </div>
 
-        <!-- 压缩控制区域 -->
+        <!-- Compression Controls -->
         <div class="compression-controls" id="compressionControls" style="display: none;">
             <div class="quality-control">
-                <label for="qualitySlider">压缩质量：<span id="qualityValue">80%</span></label>
+                <label for="qualitySlider">Compression Quality: <span id="qualityValue">80%</span></label>
                 <input type="range" id="qualitySlider" min="1" max="100" value="80">
             </div>
-            <button id="compressBtn" class="primary-button">开始压缩</button>
+            <button id="compressBtn" class="primary-button">Start Compression</button>
         </div>
 
-        <!-- 预览区域 -->
+        <!-- Preview Area -->
         <div class="preview-container" id="previewContainer" style="display: none;">
             <div class="preview-box">
-                <h3>原始图片</h3>
+                <h3>Original Image</h3>
                 <div class="image-container">
-                    <img id="originalPreview" alt="原始图片预览">
+                    <img id="originalPreview" alt="Original image preview">
                 </div>
                 <div class="file-info">
-                    <span>文件大小：</span>
+                    <span>File Size:</span>
                     <span id="originalSize">0 KB</span>
                 </div>
                 <div class="file-info">
-                    <span>图片尺寸：</span>
+                    <span>Image Dimensions:</span>
                     <span id="originalDimensions">0 x 0</span>
                 </div>
             </div>
 
             <div class="preview-box">
-                <h3>压缩后</h3>
+                <h3>Compressed</h3>
                 <div class="image-container">
-                    <img id="compressedPreview" alt="压缩后预览">
+                    <img id="compressedPreview" alt="Compressed image preview">
                 </div>
                 <div class="file-info">
-                    <span>文件大小：</span>
+                    <span>File Size:</span>
                     <span id="compressedSize">0 KB</span>
                 </div>
                 <div class="file-info">
-                    <span>压缩比例：</span>
+                    <span>Compression Ratio:</span>
                     <span id="compressionRatio">0%</span>
                 </div>
-                <button id="downloadBtn" class="secondary-button">下载压缩图片</button>
+                <button id="downloadBtn" class="secondary-button">Download Compressed Image</button>
             </div>
         </div>
     </div>
 
-    <!-- 版权声明 -->
+    <!-- Copyright Notice -->
     <footer class="copyright">
-        <p>本站非盈利性质，内容来源于互联网，如有冒犯请联系我们立删邮箱：961674004#qq.com，#换成@就是邮箱。</a></p>
+        <p>This site is non-profit, content is from the internet. If there is any infringement, please contact us for immediate removal: 961674004#qq.com (replace # with @).</p>
         <p><a href="https://beian.miit.gov.cn" rel=nofollow>渝ICP备2025054030号-11</a></p>
     </footer>
 

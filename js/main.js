@@ -1,4 +1,4 @@
-// 获取DOM元素
+// Get DOM elements
 const uploadArea = document.getElementById('uploadArea');
 const fileInput = document.getElementById('fileInput');
 const compressionControls = document.getElementById('compressionControls');
@@ -14,11 +14,11 @@ const qualityValue = document.getElementById('qualityValue');
 const compressBtn = document.getElementById('compressBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 
-// 当前处理的图片数据
+// Current image data
 let currentFile = null;
 let originalImage = null;
 
-// 格式化文件大小
+// Format file size
 function formatFileSize(bytes) {
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
@@ -27,12 +27,12 @@ function formatFileSize(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-// 更新质量显示
+// Update quality display
 qualitySlider.addEventListener('input', (e) => {
     qualityValue.textContent = `${e.target.value}%`;
 });
 
-// 处理文件上传
+// Handle file upload
 uploadArea.addEventListener('click', () => {
     fileInput.click();
 });
@@ -62,29 +62,29 @@ fileInput.addEventListener('change', (e) => {
     }
 });
 
-// 处理文件
+// Handle file
 function handleFile(file) {
     currentFile = file;
     
-    // 显示原始文件大小
+    // Display original file size
     originalSize.textContent = formatFileSize(file.size);
     
-    // 创建图片预览
+    // Create image preview
     const reader = new FileReader();
     reader.onload = (e) => {
         originalImage = new Image();
         originalImage.onload = () => {
-            // 显示原始图片
+            // Display original image
             originalPreview.src = e.target.result;
             
-            // 显示图片尺寸
+            // Display image dimensions
             originalDimensions.textContent = `${originalImage.width} x ${originalImage.height}`;
             
-            // 显示控制区域和预览区域
+            // Show control area and preview area
             compressionControls.style.display = 'block';
             previewContainer.style.display = 'grid';
             
-            // 压缩图片
+            // Compress image
             compressImage();
         };
         originalImage.src = e.target.result;
@@ -92,35 +92,35 @@ function handleFile(file) {
     reader.readAsDataURL(file);
 }
 
-// 压缩图片
+// Compress image
 function compressImage() {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     
-    // 设置画布尺寸
+    // Set canvas dimensions
     canvas.width = originalImage.width;
     canvas.height = originalImage.height;
     
-    // 绘制图片
+    // Draw image
     ctx.drawImage(originalImage, 0, 0);
     
-    // 压缩
+    // Compress
     const quality = qualitySlider.value / 100;
     const compressedDataUrl = canvas.toDataURL(currentFile.type, quality);
     
-    // 显示压缩后的图片
+    // Display compressed image
     compressedPreview.src = compressedDataUrl;
     
-    // 计算压缩后的大小
+    // Calculate compressed size
     const base64String = compressedDataUrl.split(',')[1];
     const compressedBytes = atob(base64String).length;
     compressedSize.textContent = formatFileSize(compressedBytes);
     
-    // 计算压缩比例
+    // Calculate compression ratio
     const ratio = ((1 - compressedBytes / currentFile.size) * 100).toFixed(1);
     compressionRatio.textContent = `${ratio}%`;
     
-    // 更新下载按钮
+    // Update download button
     downloadBtn.onclick = () => {
         const link = document.createElement('a');
         link.download = `compressed_${currentFile.name}`;
@@ -129,5 +129,5 @@ function compressImage() {
     };
 }
 
-// 压缩按钮点击事件
+// Compression button click event
 compressBtn.addEventListener('click', compressImage); 
