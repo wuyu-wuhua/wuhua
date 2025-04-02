@@ -210,4 +210,35 @@ input[type="range"]::-webkit-slider-thumb:hover {
     .upload-area {
         padding: 2rem;
     }
+}
+
+/* 版权声明样式 */
+.copyright {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid #e5e5e5;
+}
+
+.copyright h2 {
+    font-size: 1.2rem;
+    color: #1d1d1f;
+    margin-bottom: 1rem;
+}
+
+.copyright p {
+    color: #86868b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.copyright a {
+    color: #0071e3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.copyright a:hover {
+    color: #0077ed;
+    text-decoration: underline;
 } 
